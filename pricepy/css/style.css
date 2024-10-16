@@ -17,6 +17,18 @@ input[type=number] {
   background: transparent;
 }
 
+.check-phoneMod button {
+  font-weight: 600;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.check-phoneMod button:focus {
+  outline: none;
+}
+
 .check-phoneMod .modal__overlay {
   background: rgba(46, 50, 70, 0.4);
   padding: 40px 20px;

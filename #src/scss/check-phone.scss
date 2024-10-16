@@ -13,6 +13,16 @@ input[type=number] {
     text-align: left;
     overflow: hidden;
     background: transparent;
+    button {
+        font-weight: 600;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+          }
+        }
     .modal__overlay {
         background: rgba(#2E3246B2, .4);
         padding: 40px 20px;
@@ -74,7 +84,7 @@ input[type=number] {
         }
         input, input::placeholder {
             font-size: 14px;
-            font-weight: 500;;
+            font-weight: 500;
         }
     }
 }

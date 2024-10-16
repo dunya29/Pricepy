@@ -234,7 +234,7 @@
 								<!-- request-->
 								<div class="request">
 									<p class="request__title">Заказать звонок</p>
-									<form action="" id="form" onsubmit="event.preventDefault();$('#js-modal-check-phone').fadeIn(500);">										
+									<form action="" id="form" onsubmit="event.preventDefault();openCheckPhoneMod()">										
 										<div class="form-group">
 											<label>Введите полное ФИО:</label>
 											<input type="text" name="phonek" placeholder="Иван Иванов Иванович" required data-FL-name="ФИО">
@@ -480,7 +480,7 @@
 			<div class="check-phoneMod__code">
 				<input type="number" placeholder="000-000">
 			</div>
-			<div class="modal__lbl">Повторный запрос кода доступен через 30 сек.</div>	
+			<div class="modal__lbl check-phoneMod__codeResent">Повторный запрос кода доступен через <span></span> сек.</div>	
 			<button class="request__btn FLajax" type="submit" data-fl-theme="" data-fl-yam-new="otpravit">подтвердить</button>
 		</div>
 	</div>
