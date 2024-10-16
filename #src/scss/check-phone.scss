@@ -52,9 +52,15 @@ input[type=number] {
     }
     .modal__title {
         font-size: 36px;
+        display: block;
         height: auto;
         background: transparent;
         margin-bottom: 24px;
+        p {
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 16px;
+        }
         @media (max-width: 767px) {
             font-size: 24px;
         }
