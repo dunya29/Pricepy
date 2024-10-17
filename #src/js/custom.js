@@ -12,18 +12,6 @@ function openModal(modal) {
 function closeModal(modal) {
     $('.js-modal').fadeOut(100);
 }
-// modal click outside
-if (allModals.length > 0) {
-    allModals.forEach(item => {
-        if (item.querySelector(".modal__content")) {
-            item.addEventListener("click", e => {
-                if (!item.querySelector(".modal__content").contains(e.target)) {
-                    closeModal(item)
-                }
-            })
-        }
-    })
-}
 //setSuccessTxt
 function setSuccessTxt(title = false, txt = false) {
     successModal.querySelector(".modal__title span").textContent = title ? title : "Заявка отправлена" 
