@@ -1,6 +1,6 @@
 const allModals = document.querySelectorAll(".js-modal")
 const checkPhoneMod = document.querySelector(".check-phoneMod")
-const checkPhoneModInp = document.querySelector(".check-phoneMod__code input")
+const checkPhoneModInp = document.querySelector(".check-phoneMod__code")
 const checkPhoneModBtn = document.querySelector(".check-phoneMod .request__btn")
 const successModal = document.querySelector(".success-mod")
 const errorModal = document.querySelector(".error-mod")
@@ -50,7 +50,6 @@ function openErrorMod(title = false, txt = false) {
 }
 // formSuccess
 function formSuccess(form, title = false, txt = false) {
-    form.querySelectorAll(".item-form").forEach(item => item.classList.remove("error"))
     form.querySelectorAll("input").forEach(inp => {
         inp.classList.remove("has-error")
         if (!["hidden", "checkbox", "radio"].includes(inp.type)) {
@@ -95,7 +94,7 @@ if (headermobBtn) {
 //fixed-menu
 const fixedMenu = document.querySelector(".fixed-menu")
 function showFixedMenu() {
-  if (window.innerWidth <= 767.98 && window.innerHeight - document.querySelector(".footer").getBoundingClientRect().bottom + 150 <= 0) {
+  if (window.innerWidth <= 991 && window.innerHeight - document.querySelector(".footer").getBoundingClientRect().bottom <= 0) {
     fixedMenu.classList.remove("unshow")
   } else {
     fixedMenu.classList.add("unshow")
@@ -106,3 +105,8 @@ if (fixedMenu) {
   window.addEventListener("resize", showFixedMenu)
   window.addEventListener("scroll", showFixedMenu)
 }
+window.addEventListener("resize", () => {
+    if(window.innerWidth > 991.98 && document.querySelector('.burger').classList.contains("open")) {
+        document.querySelector('.burger').click()
+    }
+})

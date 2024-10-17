@@ -54,6 +54,7 @@ $(function() {
 
     $('.burger').click(function(e) {
         e.preventDefault();
+        $('body').toggleClass("noscroll")
         $(this).toggleClass('open');
         $('.navbar__menu').slideToggle();
     });
