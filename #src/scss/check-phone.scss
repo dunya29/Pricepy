@@ -8,7 +8,7 @@ input[type=number] {
 .noscroll {
     overflow: hidden;
 }
-.check-phoneMod, .success-mod, .error-mod{
+.check-phone, .success-mod, .error-mod{
     width: 100%;
     max-width: none;
     height: 100%;
@@ -73,9 +73,9 @@ input[type=number] {
         margin-top: 12px;
     }
 }
-.check-phoneMod {
+.check-phone {
     text-align: left;
-    &__resent {
+    &__resend {
         font-weight: 600;
         padding: 0;
         border: 0;

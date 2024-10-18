@@ -11,7 +11,7 @@ input[type=number] {
   overflow: hidden;
 }
 
-.check-phoneMod,
+.check-phone,
 .success-mod,
 .error-mod {
   width: 100%;
@@ -22,7 +22,7 @@ input[type=number] {
   background: transparent;
 }
 
-.check-phoneMod .modal__title,
+.check-phone .modal__title,
 .success-mod .modal__title,
 .error-mod .modal__title {
   font-size: 36px;
@@ -32,7 +32,7 @@ input[type=number] {
   margin-bottom: 24px;
 }
 
-.check-phoneMod .modal__title p,
+.check-phone .modal__title p,
 .success-mod .modal__title p,
 .error-mod .modal__title p {
   font-size: 16px;
@@ -86,11 +86,11 @@ input[type=number] {
   margin-top: 12px;
 }
 
-.check-phoneMod {
+.check-phone {
   text-align: left;
 }
 
-.check-phoneMod__resent {
+.check-phone__resend {
   font-weight: 600;
   padding: 0;
   border: 0;
@@ -98,48 +98,48 @@ input[type=number] {
   cursor: pointer;
 }
 
-.check-phoneMod__resent:focus {
+.check-phone__resend:focus {
   outline: none;
 }
 
-.check-phoneMod form {
+.check-phone form {
   display: block;
   padding: 0;
 }
 
-.check-phoneMod form input {
+.check-phone form input {
   width: 100%;
   margin: 0 0 24px;
 }
 
-.check-phoneMod form input::-webkit-input-placeholder {
+.check-phone form input::-webkit-input-placeholder {
   font-size: 14px;
   font-weight: 500;
 }
 
-.check-phoneMod form input::-moz-placeholder {
+.check-phone form input::-moz-placeholder {
   font-size: 14px;
   font-weight: 500;
 }
 
-.check-phoneMod form input:-ms-input-placeholder {
+.check-phone form input:-ms-input-placeholder {
   font-size: 14px;
   font-weight: 500;
 }
 
-.check-phoneMod form input::-ms-input-placeholder {
+.check-phone form input::-ms-input-placeholder {
   font-size: 14px;
   font-weight: 500;
 }
 
-.check-phoneMod form input,
-.check-phoneMod form input::placeholder {
+.check-phone form input,
+.check-phone form input::placeholder {
   font-size: 14px;
   font-weight: 500;
 }
 
-.check-phoneMod .request__btn:disabled,
-.check-phoneMod .request__btn.disabled {
+.check-phone .request__btn:disabled,
+.check-phone .request__btn.disabled {
   opacity: 0.5;
   color: white;
   background: #F13D3D;
@@ -526,7 +526,7 @@ input[type=number] {
 }
 
 @media (max-width: 767px) {
-  .check-phoneMod .modal__title,
+  .check-phone .modal__title,
   .success-mod .modal__title,
   .error-mod .modal__title {
     font-size: 24px;

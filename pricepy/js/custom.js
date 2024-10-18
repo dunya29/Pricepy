@@ -1,7 +1,4 @@
 const allModals = document.querySelectorAll(".js-modal")
-const checkPhoneMod = document.querySelector(".check-phoneMod")
-const checkPhoneModInp = document.querySelector(".check-phoneMod__code")
-const checkPhoneModBtn = document.querySelector(".check-phoneMod .request__btn")
 const successModal = document.querySelector(".success-mod")
 const errorModal = document.querySelector(".error-mod")
 //open modal
@@ -46,32 +43,7 @@ function formSuccess(form, title = false, txt = false) {
     })
     openSuccessMod(title, txt)
 }
-let codeResTimeout
-function openCheckPhoneMod() {
-    clearTimeout(codeResTimeout)
-    openModal(checkPhoneMod)
-    let val = 30  
-    document.querySelector(".check-phoneMod__codeResent").innerHTML = `Повторный запрос кода доступен через <span>${val}</span> сек.`
-    setTimeout(() => {
-        function changeTimeVal() {
-            document.querySelector(".check-phoneMod__codeResent span").textContent = val
-            val--
-            if ( val > 0) {
-                codeResTimeout = setTimeout(changeTimeVal, 1000);
-            } else {
-                document.querySelector(".check-phoneMod__codeResent").innerHTML = `<button type="button" class="check-phoneMod__resent">Отправить  новый код</button>`
-            }
-        }
-        changeTimeVal()
-    }, 500);
-}
-if (checkPhoneModInp) {
-    function checkVal() {
-        checkPhoneModInp.value.length == 0 ? checkPhoneModBtn.setAttribute("disabled", true) : checkPhoneModBtn.removeAttribute("disabled")
-    }
-    checkVal()
-    checkPhoneModInp.addEventListener("input",checkVal)
-}
+//headermobBtn
 const headermobBtn = document.querySelector(".header__mobBtn")
 if (headermobBtn) {
     headermobBtn.addEventListener('click', () => document.querySelector(".header__phones").classList.add("open"))
@@ -98,3 +70,45 @@ window.addEventListener("resize", () => {
         document.querySelector('.burger').click()
     }
 })
+//check-phone
+const checkPhoneMod = document.querySelector(".check-phone")
+let codeResTimeout
+function checkVal() {
+    checkPhoneMod.querySelector(".check-phone__code").value.length == 0 ? 
+    document.querySelector(".check-phone .request__btn").setAttribute("disabled", true) : 
+    document.querySelector(".check-phone .request__btn").removeAttribute("disabled")
+    checkPhoneMod.querySelector(".check-phone__code").addEventListener("input",checkVal)
+} 
+function openCheckPhoneMod(tel) {
+    clearTimeout(codeResTimeout)
+    openModal(checkPhoneMod)
+    let val = 30  
+    checkPhoneMod.querySelector(".modal__title span").textContent = `Получите код подтверждения на номер ${tel}`
+    checkPhoneMod.querySelector(".check-phone__content").innerHTML = `<button class="request__btn check-phone__send" type="button">Получить код</button>`
+    checkPhoneMod.addEventListener("click", e => {
+        if (checkPhoneMod.querySelector(".check-phone__send").contains(e.target)) {
+            val = 30  
+            clearTimeout(codeResTimeout)
+            checkPhoneMod.querySelector(".check-phone__content").innerHTML = `
+            <div class="modal__lbl">Код подтверждения</div>
+			<form action="">
+				<input type="number" placeholder="000-000" class="check-phone__code">
+				<div class="modal__lbl check-phone__resend">Повторный запрос кода доступен через <span>${val}</span> сек.</div>	
+				<button class="request__btn" type="submit">подтвердить</button>
+			</form>
+            `
+            checkPhoneMod.querySelector(".modal__title span").textContent = `Выслали проверочный код на телефон`
+            checkVal()
+            function changeTimeVal() {
+                document.querySelector(".check-phone__resend span").textContent = val
+                val--
+                if ( val > 0) {
+                    codeResTimeout = setTimeout(changeTimeVal, 1000);
+                } else {
+                    document.querySelector(".check-phone__resend").innerHTML = `<button type="button" class="check-phone__resend">Отправить  новый код</button>`
+                }
+            }
+            changeTimeVal()
+        }
+    })
+}

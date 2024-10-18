@@ -315,7 +315,7 @@
 								<!-- request-->
 								<div class="request">
 									<p class="request__title">Заказать звонок</p>
-									<form action="" id="form" onsubmit="event.preventDefault();openCheckPhoneMod()">										
+									<form action="" id="form" onsubmit="event.preventDefault();openCheckPhoneMod('+7 (920) 884-88-88')">										
 										<div class="form-group">
 											<label>Введите полное ФИО:</label>
 											<input type="text" name="phonek" placeholder="Иван Иванов Иванович" required data-FL-name="ФИО">
@@ -546,8 +546,8 @@
 		</div>
 	</div>
 </div>
-<!--check-phoneMod-->
-<div class="modal js-modal check-phoneMod" id="js-modal-check-phone">
+<!--check-phone-->
+<div class="modal js-modal check-phone" id="js-modal-check-phone">
 	<div class="modal__overlay">
 		<div class="modal__content">
 			<a class="close-btn js-modal-close" href="#">
@@ -556,15 +556,13 @@
 				</svg>
 			</a>
 			<div class="modal__title">
-				<span>Выслали проверочный код на телефон</span>
+				<span>Получите код подтверждения</span>
 				<p>Мы получаем очень много спама, и вынуждены внедрить проверку номера телефона пользователя, перед отправкой формы. Извините за эти неудобства.</p>
 			</div>
-			<div class="modal__lbl">Код подтверждения</div>
-			<form action="" onsubmit="event.preventDefault();formSuccess(this,'Заявка отправлена успешно', 'Наш менеджер свяжется с Вами')">
-				<input type="number" placeholder="000-000" class="check-phoneMod__code">
-				<div class="modal__lbl check-phoneMod__codeResent"></div>	
-				<button class="request__btn FLajax" type="submit" data-fl-theme="" data-fl-yam-new="otpravit">подтвердить</button>
-			</form>
+			<div class="check-phone__content">
+				<button class="request__btn check-phone__send" type="button">Получить код</button>
+			</div>
+
 		</div>
 	</div>
 </div>
@@ -602,7 +600,6 @@
         </div>
     </div>
 </modal>
-<!--fixed-menu-->
 <div class="fixed-menu">
 	<div class="container">
 		<nav>
