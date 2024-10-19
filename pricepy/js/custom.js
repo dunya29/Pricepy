@@ -87,14 +87,14 @@ function openCheckPhoneMod(tel) {
     checkPhoneMod.querySelector(".check-phone__content").innerHTML = `<button class="request__btn check-phone__send" type="button">Получить код</button>`
     checkPhoneMod.addEventListener("click", e => {
         if (checkPhoneMod.querySelector(".check-phone__send").contains(e.target)) {
-            val = 30  
+            val = 30
             clearTimeout(codeResTimeout)
             checkPhoneMod.querySelector(".check-phone__content").innerHTML = `
             <div class="modal__lbl">Код подтверждения</div>
-			<form action="">
-				<input type="number" placeholder="000-000" class="check-phone__code">
+			<form action="" novalidate class="send-code">
+				<input type="text" pattern="\d*" maxlength="4" name="code" placeholder="0000" class="check-phone__code">
 				<div class="modal__lbl check-phone__resend">Повторный запрос кода доступен через <span>${val}</span> сек.</div>	
-				<button class="request__btn" type="submit">подтвердить</button>
+				<button class="request__btn send-code__submit" type="submit">подтвердить</button>
 			</form>
             `
             checkPhoneMod.querySelector(".modal__title span").textContent = `Выслали проверочный код на телефон`
@@ -105,7 +105,7 @@ function openCheckPhoneMod(tel) {
                 if ( val > 0) {
                     codeResTimeout = setTimeout(changeTimeVal, 1000);
                 } else {
-                    document.querySelector(".check-phone__resend").innerHTML = `<button type="button" class="check-phone__resend">Отправить  новый код</button>`
+                    document.querySelector(".check-phone__resend").innerHTML = `<button type="button" class="check-phone__resend check-phone__send">Отправить новый код</button>`
                 }
             }
             changeTimeVal()
