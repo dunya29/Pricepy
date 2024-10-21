@@ -103,13 +103,13 @@ function openCheckPhoneMod(tel) {
             checkPhoneMod.querySelector(".modal__title span").textContent = `Выслали проверочный код на телефон`
             checkVal()
             function changeTimeVal() {
-                document.querySelector(".modal__lbl-resend span").textContent = val
-                val--
                 if ( val > 0) {
+                    document.querySelector(".modal__lbl-resend span").textContent = val
                     codeResTimeout = setTimeout(changeTimeVal, 1000);
                 } else {
                     document.querySelector(".modal__lbl-resend").innerHTML = `<button type="button" data-send-code="resend" class="check-phone__resend check-phone__send">Отправить новый код</button>`
                 }
+                val--
             }
             changeTimeVal()
         }
