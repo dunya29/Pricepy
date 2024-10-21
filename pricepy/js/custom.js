@@ -41,6 +41,11 @@ function formSuccess(form, title = false, txt = false) {
             inp.value = ""
         }
     })
+    if (form.querySelector("[data-error]")) {
+        form.querySelectorAll("[data-error]").forEach(err => {
+            err.textContent = ""
+        })
+    }
     openSuccessMod(title, txt)
 }
 //headermobBtn
@@ -88,7 +93,7 @@ function openCheckPhoneMod(tel) {
     checkPhoneMod.addEventListener("click", e => {
         if (checkPhoneMod.querySelector(".check-phone__send").contains(e.target)) {
             val = +checkPhoneMod.getAttribute("data-timeout") || 30
-            clearTimeout(codeResTimeout)
+            clearTimeout(codeResTimeout) 
             checkPhoneMod.querySelector(".check-phone__content").innerHTML = `
             <div class="modal__lbl">Код подтверждения</div>
 			<form action="" novalidate class="send-code">
@@ -100,6 +105,7 @@ function openCheckPhoneMod(tel) {
 				<button class="request__btn send-code__submit" type="submit">подтвердить</button>
 			</form>
             `
+            setPhoneError("") 
             checkPhoneMod.querySelector(".modal__title span").textContent = `Выслали проверочный код на телефон`
             checkVal()
             function changeTimeVal() {
@@ -114,4 +120,8 @@ function openCheckPhoneMod(tel) {
             changeTimeVal()
         }
     })
+}
+function setPhoneError(txt) {
+    checkPhoneMod.querySelector(".item-form input").classList.add("has-error")
+    checkPhoneMod.querySelector(".item-form [data-error]").textContent = txt
 }

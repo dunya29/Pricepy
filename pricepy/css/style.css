@@ -102,8 +102,22 @@ input[type=number] {
   transition: all 0.3s linear;
 }
 
+.check-phone__resend:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: black;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
 .check-phone__resend:hover {
   color: #F13D3D;
+}
+
+.check-phone__resend:hover:after {
+  background: #F13D3D;
 }
 
 .check-phone__resend:focus {
@@ -117,6 +131,12 @@ input[type=number] {
 
 .check-phone form input {
   width: 100%;
+}
+
+.check-phone form input.has-error {
+  border-color: red;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .check-phone form input::-webkit-input-placeholder {
