@@ -82,12 +82,12 @@ function checkVal() {
 function openCheckPhoneMod(tel) {
     clearTimeout(codeResTimeout)
     openModal(checkPhoneMod)
-    let val = 30  
+    let val = +checkPhoneMod.getAttribute("data-timeout") || 30
     checkPhoneMod.querySelector(".modal__title span").textContent = `Получите код подтверждения на номер ${tel}`
     checkPhoneMod.querySelector(".check-phone__content").innerHTML = `<button data-send-code="send" class="request__btn check-phone__send" type="button">Получить код</button>`
     checkPhoneMod.addEventListener("click", e => {
         if (checkPhoneMod.querySelector(".check-phone__send").contains(e.target)) {
-            val = 30
+            val = +checkPhoneMod.getAttribute("data-timeout") || 30
             clearTimeout(codeResTimeout)
             checkPhoneMod.querySelector(".check-phone__content").innerHTML = `
             <div class="modal__lbl">Код подтверждения</div>
@@ -96,19 +96,19 @@ function openCheckPhoneMod(tel) {
                 	<input type="text" pattern="\d*" maxlength="4" name="code" placeholder="0000" class="check-phone__code">
                     <span data-error></span>
                 </div>
-				<div class="modal__lbl check-phone__resend">Повторный запрос кода доступен через <span>${val}</span> сек.</div>	
+				<div class="modal__lbl modal__lbl-resend">Повторный запрос кода доступен через <span>${val}</span> сек.</div>	
 				<button class="request__btn send-code__submit" type="submit">подтвердить</button>
 			</form>
             `
             checkPhoneMod.querySelector(".modal__title span").textContent = `Выслали проверочный код на телефон`
             checkVal()
             function changeTimeVal() {
-                document.querySelector(".check-phone__resend span").textContent = val
+                document.querySelector(".modal__lbl-resend span").textContent = val
                 val--
                 if ( val > 0) {
                     codeResTimeout = setTimeout(changeTimeVal, 1000);
                 } else {
-                    document.querySelector(".check-phone__resend").innerHTML = `<button type="button" data-send-code="resend" class="check-phone__resend check-phone__send">Отправить новый код</button>`
+                    document.querySelector(".modal__lbl-resend").innerHTML = `<button type="button" data-send-code="resend" class="check-phone__resend check-phone__send">Отправить новый код</button>`
                 }
             }
             changeTimeVal()

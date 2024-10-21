@@ -82,8 +82,8 @@ input[type=number] {
   margin-bottom: 10px;
 }
 
-.modal__lbl + .request__btn {
-  margin-top: 12px;
+.modal__lbl.modal__lbl-resend {
+  font-weight: 600;
 }
 
 .check-phone {
@@ -91,11 +91,19 @@ input[type=number] {
 }
 
 .check-phone__resend {
+  font-size: 18px;
   font-weight: 600;
   padding: 0;
   border: 0;
   background: transparent;
+  margin-top: 10px;
   cursor: pointer;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.check-phone__resend:hover {
+  color: #F13D3D;
 }
 
 .check-phone__resend:focus {

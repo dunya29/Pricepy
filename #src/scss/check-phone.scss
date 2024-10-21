@@ -69,21 +69,27 @@ input[type=number] {
     font-size: 14px;
     font-weight: 500;
     margin-bottom: 10px;
-    & + .request__btn {
-        margin-top: 12px;
+    &.modal__lbl-resend {
+        font-weight: 600;
     }
 }
 .check-phone {
     text-align: left;
     &__resend {
+        font-size: 18px;
         font-weight: 600;
         padding: 0;
         border: 0;
         background: transparent;
+        margin-top: 10px;
         cursor: pointer;
+        transition: all .3s linear;
+        &:hover {
+            color: #F13D3D;
+        }
         &:focus {
             outline: none;
-          }
+        }
     }
     form {
         display: block;
