@@ -90,7 +90,6 @@ input[type=number] {
         padding: 0;
         input {
             width: 100%;
-            margin: 0 0 24px;
         }
         input, input::placeholder {
             font-size: 14px;
@@ -394,6 +393,21 @@ input[type=number] {
                     }
                 }
             }
+        }
+    }
+}
+.item-form {
+    margin-bottom: 24px;
+    input {
+        margin: 0!important;
+    }
+    [data-error] {
+        display: block;
+        color: red;
+        margin-top: 5px;
+        &:empty {
+            display: none;
+            margin-top: 0;
         }
     }
 }

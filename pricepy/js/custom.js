@@ -92,7 +92,10 @@ function openCheckPhoneMod(tel) {
             checkPhoneMod.querySelector(".check-phone__content").innerHTML = `
             <div class="modal__lbl">Код подтверждения</div>
 			<form action="" novalidate class="send-code">
-				<input type="text" pattern="\d*" maxlength="4" name="code" placeholder="0000" class="check-phone__code">
+                <div class="item-form">
+                	<input type="text" pattern="\d*" maxlength="4" name="code" placeholder="0000" class="check-phone__code">
+                    <span data-error></span>
+                </div>
 				<div class="modal__lbl check-phone__resend">Повторный запрос кода доступен через <span>${val}</span> сек.</div>	
 				<button class="request__btn send-code__submit" type="submit">подтвердить</button>
 			</form>

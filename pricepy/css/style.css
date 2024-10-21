@@ -109,7 +109,6 @@ input[type=number] {
 
 .check-phone form input {
   width: 100%;
-  margin: 0 0 24px;
 }
 
 .check-phone form input::-webkit-input-placeholder {
@@ -185,6 +184,25 @@ input[type=number] {
 
 .fixed-menu {
   display: none;
+}
+
+.item-form {
+  margin-bottom: 24px;
+}
+
+.item-form input {
+  margin: 0 !important;
+}
+
+.item-form [data-error] {
+  display: block;
+  color: red;
+  margin-top: 5px;
+}
+
+.item-form [data-error]:empty {
+  display: none;
+  margin-top: 0;
 }
 
 @media screen and (min-width: 991.98px) {
