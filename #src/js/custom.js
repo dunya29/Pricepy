@@ -84,7 +84,7 @@ function openCheckPhoneMod(tel) {
     openModal(checkPhoneMod)
     let val = 30  
     checkPhoneMod.querySelector(".modal__title span").textContent = `Получите код подтверждения на номер ${tel}`
-    checkPhoneMod.querySelector(".check-phone__content").innerHTML = `<button class="request__btn check-phone__send" type="button">Получить код</button>`
+    checkPhoneMod.querySelector(".check-phone__content").innerHTML = `<button data-send-code="send" class="request__btn check-phone__send" type="button">Получить код</button>`
     checkPhoneMod.addEventListener("click", e => {
         if (checkPhoneMod.querySelector(".check-phone__send").contains(e.target)) {
             val = 30
@@ -108,7 +108,7 @@ function openCheckPhoneMod(tel) {
                 if ( val > 0) {
                     codeResTimeout = setTimeout(changeTimeVal, 1000);
                 } else {
-                    document.querySelector(".check-phone__resend").innerHTML = `<button type="button" class="check-phone__resend check-phone__send">Отправить новый код</button>`
+                    document.querySelector(".check-phone__resend").innerHTML = `<button type="button" data-send-code="resend" class="check-phone__resend check-phone__send">Отправить новый код</button>`
                 }
             }
             changeTimeVal()
