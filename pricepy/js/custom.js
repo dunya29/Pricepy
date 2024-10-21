@@ -105,7 +105,6 @@ function openCheckPhoneMod(tel) {
 				<button class="request__btn send-code__submit" type="submit">подтвердить</button>
 			</form>
             `
-            setPhoneError("") 
             checkPhoneMod.querySelector(".modal__title span").textContent = `Выслали проверочный код на телефон`
             checkVal()
             function changeTimeVal() {
